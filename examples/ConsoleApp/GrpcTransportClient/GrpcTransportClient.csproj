@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefineConstants>DEVELOPMENT_BUILD</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="2.4.35" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.47.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.48.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\VMCTransportBridge.Serialization\VMCTransportBridge.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\src\VMCTransportBridge.Transports\Grpc\Client\VMCTransportBridge.Transports.Grpc.Client.csproj" />
+    <ProjectReference Include="..\..\..\src\VMCTransportBridge.Transports\Grpc\Shared\VMCTransportBridge.Transports.Grpc.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

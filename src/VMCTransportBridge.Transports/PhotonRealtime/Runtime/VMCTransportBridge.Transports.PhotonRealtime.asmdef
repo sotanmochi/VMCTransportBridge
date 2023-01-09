@@ -1,0 +1,19 @@
+{
+    "name": "VMCTransportBridge.Transports.PhotonRealtime",
+    "rootNamespace": "",
+    "references": [
+        "VMCTransportBridge",
+        "UniTask",
+        "PhotonRealtime",
+        "PhotonUnityNetworking"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

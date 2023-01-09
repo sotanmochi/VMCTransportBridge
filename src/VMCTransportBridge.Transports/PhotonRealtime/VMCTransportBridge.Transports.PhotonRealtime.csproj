@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefineConstants>DEVELOPMENT_BUILD</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BaseOutputPath>.\build~\bin</BaseOutputPath>
+    <IntermediateOutputPath>.\build~\obj</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="2.4.35" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\VMCTransportBridge\VMCTransportBridge.csproj" />
+    <ProjectReference Include="..\..\..\libs\Photon-DotNet\PhotonLoadbalancingApi\PhotonLoadbalancingApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <Reference Include="Photon-NetStandard">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\Photon-DotNet\libs\Debug\netstandard2.0\Photon-NetStandard.dll</HintPath>
+      </Reference>
+  </ItemGroup>
+
+</Project>

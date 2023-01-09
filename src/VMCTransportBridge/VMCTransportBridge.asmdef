@@ -1,0 +1,19 @@
+{
+    "name": "VMCTransportBridge",
+    "rootNamespace": "",
+    "references": [
+        "VMCTransportBridge.Serialization",
+        "OscJack.Runtime",
+        "MessagePack",
+        "MessagePack.Annotations"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

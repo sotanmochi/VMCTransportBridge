@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\VMCTransportBridge.Serialization\VMCTransportBridge.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\src\VMCTransportBridge.Transports\Grpc\Server\VMCTransportBridge.Transports.Grpc.Server.csproj" />
+  </ItemGroup>
+
+</Project>

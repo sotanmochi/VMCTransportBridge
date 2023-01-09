@@ -1,0 +1,19 @@
+{
+    "name": "VMCTransportBridge.Transports.Grpc.Client",
+    "rootNamespace": "",
+    "references": [
+        "VMCTransportBridge",
+        "VMCTransportBridge.Serialization",
+        "VMCTransportBridge.Transports.Grpc.Shared",
+        "MessagePack"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
