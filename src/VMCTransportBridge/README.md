@@ -4,11 +4,11 @@ VMCTransportBridge is a library for .NET and Unity that provides real-time commu
 
 VMCTransportBridge extends VMC Protocol applications to communicate over the internet using transport implementation such as  gRPC over HTTP/2.  
 
-[VMC Protocol Extension for VMCTransportBridge](.documentation~/VMCProtocolExtension.md)
+[VMC Protocol Extension for VMCTransportBridge](./.documentation~/VMCProtocolExtension.md)
 
-<img src=".documentation~/VMCTransportBridge.png">
+<img src="./.documentation~/VMCTransportBridge.png">
 
-<img src=".documentation~/VMCTransportBridge_Architecture.png">
+<img src="./.documentation~/VMCTransportBridge_Architecture.png">
 
 ## License
 ```
