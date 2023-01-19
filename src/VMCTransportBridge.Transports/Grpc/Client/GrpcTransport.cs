@@ -85,10 +85,10 @@ namespace VMCTransportBridge.Transports.Grpc.Client
             DisposeAsync();
             _connected = false;
         }
-        
-        public async Task SendAsync(ArraySegment<byte> serializedMessage)
+
+        public void Send(ArraySegment<byte> serializedMessage)
         {
-            await _streamingCall.RequestStream.WriteAsync(serializedMessage.Array);
+            _streamingCall.RequestStream.WriteAsync(serializedMessage.Array).GetAwaiter().GetResult();
         }
 
         public async void ConnectAndForget()

@@ -11,7 +11,8 @@ namespace VMCTransportBridge
         bool IsConnected { get; }
         int ClientId { get; }
 
-        Task SendAsync(ArraySegment<byte> data);
+        void Send(ArraySegment<byte> data);
+
         Task<bool> ConnectAsync(string roomId = "");
         Task DisconnectAsync();
         Task DisposeAsync();

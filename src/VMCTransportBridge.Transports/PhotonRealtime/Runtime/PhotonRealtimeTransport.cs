@@ -110,15 +110,15 @@ namespace VMCTransportBridge.Transports.PhotonRealtime
         }
         
         /// <summary>
-        /// SendAsync
+        /// Send
         /// </summary>
         /// <param name="serializedMessage"></param>
         /// <returns></returns>
-        public async Task SendAsync(ArraySegment<byte> serializedMessage)
+        public void Send(ArraySegment<byte> serializedMessage)
         {
             _photonRealtimeClient.RaiseEvent(VMCTransportBridgeEventCode, serializedMessage.Array, _raiseEventOptions, SendOptions.SendReliable);
         }
-        
+
         /// <summary>
         /// Event handler
         /// </summary>

@@ -56,7 +56,7 @@ namespace VMCTransportBridge
             _messageReceiver.OnReceiveDeviceLocalTransform -= OnReceiveDeviceLocalTransformEventHandler;
         }
 
-        public async Task PublishAsync<T>(T message)
+        public void Publish<T>(T message)
         {
             var messageId = message switch
             {
@@ -96,77 +96,77 @@ namespace VMCTransportBridge
             var serializedMessage = SerializeMessage();
 
             OnSendMessage?.Invoke(messageId, serializedMessage);
-            await _transport.SendAsync(serializedMessage);
+            _transport.Send(serializedMessage);
         }
 
         private void OnReceivePerformerAppStatusEventHandler(PerformerAppStatus value)
         {
-            PublishAsync<PerformerAppStatus>(value);
+            Publish<PerformerAppStatus>(value);
         }
 
         private void OnReceiveLocalVrmEventHandler(LocalVrm value)
         {
-            PublishAsync<LocalVrm>(value);
+            Publish<LocalVrm>(value);
         }
 
         private void OnReceiveRemoteVrmEventHandler(RemoteVrm value)
         {
-            PublishAsync<RemoteVrm>(value);
+            Publish<RemoteVrm>(value);
         }
 
         private void OnReceiveTimeEventHandler(Time value)
         {
-            PublishAsync<Time>(value);
+            Publish<Time>(value);
         }
 
         private void OnReceiveRootTransformEventHandler(RootTransform value)
         {
-            PublishAsync<RootTransform>(value);
+            Publish<RootTransform>(value);
         }
 
         private void OnReceiveBoneTransformEventHandler(BoneTransform value)
         {
-            PublishAsync<BoneTransform>(value);
+            Publish<BoneTransform>(value);
         }
 
         private void OnReceiveBlendShapeProxyValueEventHandler(BlendShapeProxyValue value)
         {
-            PublishAsync<BlendShapeProxyValue>(value);
+            Publish<BlendShapeProxyValue>(value);
         }
 
         private void OnReceiveBlendShapeProxyApplyEventHandler(BlendShapeProxyApply value)
         {
-            PublishAsync<BlendShapeProxyApply>(value);
+            Publish<BlendShapeProxyApply>(value);
         }
 
         private void OnReceiveCameraEventHandler(Camera value)
         {
-            PublishAsync<Camera>(value);
+            Publish<Camera>(value);
         }
 
         private void OnReceiveLightEventHandler(Light value)
         {
-            PublishAsync<Light>(value);
+            Publish<Light>(value);
         }
 
         private void OnReceiveControllerInputEventHandler(ControllerInput value)
         {
-            PublishAsync<ControllerInput>(value);
+            Publish<ControllerInput>(value);
         }
 
         private void OnReceiveKeyInputEventHandler(KeyInput value)
         {
-            PublishAsync<KeyInput>(value);
+            Publish<KeyInput>(value);
         }
 
         private void OnReceiveDeviceTransformEventHandler(DeviceTransform value)
         {
-            PublishAsync<DeviceTransform>(value);
+            Publish<DeviceTransform>(value);
         }
 
         private void OnReceiveDeviceLocalTransformEventHandler(DeviceLocalTransform value)
         {
-            PublishAsync<DeviceLocalTransform>(value);
+            Publish<DeviceLocalTransform>(value);
         }
     }
 }
