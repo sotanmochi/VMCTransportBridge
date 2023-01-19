@@ -25,7 +25,8 @@
   <ItemGroup>
       <Reference Include="Photon-NetStandard">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\libs\Photon-DotNet\libs\Debug\netstandard2.0\Photon-NetStandard.dll</HintPath>
+      <HintPath Condition="'$(Configuration)' == 'Debug'">..\..\..\libs\Photon-DotNet\libs\Debug\netstandard2.0\Photon-NetStandard.dll</HintPath>
+      <HintPath Condition="'$(Configuration)' == 'Release'">..\..\..\libs\Photon-DotNet\libs\Release\netstandard2.0\Photon-NetStandard.dll</HintPath>
       </Reference>
   </ItemGroup>
 
