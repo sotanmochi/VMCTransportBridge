@@ -44,6 +44,8 @@ public class Startup
         await _client.ConnectAsync();
         Console.WriteLine($"Connected: {_client.IsConnected}");
 
+        await Task.Run(() =>
+        {
         while (true)
         {
             Console.Write("Input message ('q' to quit): ");
@@ -68,8 +70,9 @@ public class Startup
             // Console.WriteLine($"SendAsync: {data.Length} [bytes]");
             // Console.WriteLine($"-------------------------------------------");
 
-            await _client.SendAsync(data);
+            _client.Send(data);
         }
+        });
     }
 
     private byte[] SerializeMessage<T>(int messageId, int transportClientId, T message)

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Grpc.Core;
 using MessagePack;
-using VMCTransportBridge;
 using VMCTransportBridge.Serialization;
 using VMCTransportBridge.Transports.Grpc.Shared;
 using VMCTransportBridge.Utils;
@@ -18,6 +17,8 @@ public class BinaryStreamingService : BinaryStreamingServiceBase
     private readonly ClientIdPool _clientIdPool;
     private readonly IMessageSerializer _messageSerializer;
     private readonly ILogger<BinaryStreamingService> _logger;
+
+    private ushort _clientId;
 
     public BinaryStreamingService
     (
@@ -42,10 +43,10 @@ public class BinaryStreamingService : BinaryStreamingServiceBase
     {
         var connectionId = Guid.NewGuid();
 
-        await OnConnecting(connectionId, responseStream);
-
         try
         {
+            await OnConnecting(connectionId, responseStream);
+
             // Main loop of streaming service.
             while (await requestStream.MoveNext(_cts.Token))
             {
@@ -61,17 +62,25 @@ public class BinaryStreamingService : BinaryStreamingServiceBase
         finally
         {
             _connectionRepository.Remove(connectionId);
-            Log($"OnDisconnected - ConnectionId: {connectionId}");
+            _clientIdPool.ReturnToPool(_clientId);
+
+            Log($"OnDisconnected - ClientId: {_clientId}, ConnectionId: {connectionId}");
             Log($"Connections: {_connectionRepository.Count}");
+
+            _clientId = 0;
         }
     }
 
     private async Task OnConnecting(Guid connectionId, IServerStreamWriter<byte[]> responseStream)
     {
-        _connectionRepository.Add(connectionId, responseStream);
-        _clientIdPool.TryGetClientId(out ushort clientId);
+        if (!_clientIdPool.TryGetClientId(out _clientId))
+        {
+            throw new Exception("[BinaryStreamingService] Max Connection Error");
+        }
 
-        Log($"OnConnected - ConnectionId: {connectionId}");
+        _connectionRepository.Add(connectionId, responseStream);
+
+        Log($"OnConnected - ClientId: {_clientId}, ConnectionId: {connectionId}");
         Log($"Connections: {_connectionRepository.Count}");
 
         var messageId = (int)MessageType.Connect;
@@ -79,11 +88,11 @@ public class BinaryStreamingService : BinaryStreamingServiceBase
         var connectionMessage = new ConnectionMessage()
         {
             TimestampMilliseconds = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
-            ClientId = clientId,
+            ClientId = _clientId,
             ConnectionId = connectionId.ToString()
         };
 
-        var serializedMessage = SerializeMessage(messageId, clientId, connectionMessage);
+        var serializedMessage = SerializeMessage(messageId, _clientId, connectionMessage);
         await responseStream.WriteAsync(serializedMessage);
     }
 

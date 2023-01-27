@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Concurrent;
 
 namespace VMCTransportBridge.Transports.Grpc.Server
@@ -15,7 +14,7 @@ namespace VMCTransportBridge.Transports.Grpc.Server
                 capacity = DefaultCapacity;
             }
 
-            for (ushort i = 1; i < capacity; i++)
+            for (ushort i = 1; i <= capacity; i++)
             {
                 _clientIdPool.Enqueue(i);
             }
