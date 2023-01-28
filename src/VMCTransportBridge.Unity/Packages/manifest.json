@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "jp.sotanmochi.vmctransportbridge.transports.grpc.client" : "file:../../VMCTransportBridge.Transports/Grpc/Client",
+    "jp.sotanmochi.vmctransportbridge.transports.grpc.shared" : "file:../../VMCTransportBridge.Transports/Grpc/Shared",
+    "jp.sotanmochi.vmctransportbridge.serialization": "file:../../VMCTransportBridge.Serialization",
+    "jp.sotanmochi.vmctransportbridge": "file:../../VMCTransportBridge",
+    "com.neuecc.messagepack": "https://github.com/neuecc/MessagePack-CSharp.git?path=src/MessagePack.UnityClient/Assets/Scripts/MessagePack#v2.3.112",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.16",

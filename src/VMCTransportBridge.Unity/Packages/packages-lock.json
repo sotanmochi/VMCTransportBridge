@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.neuecc.messagepack": {
+      "version": "https://github.com/neuecc/MessagePack-CSharp.git?path=src/MessagePack.UnityClient/Assets/Scripts/MessagePack#v2.3.112",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9f5b50634c08879476ad877cd599a77290bb19a3"
+    },
     "com.unity.collab-proxy": {
       "version": "1.17.7",
       "depth": 0,
@@ -154,6 +161,30 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jp.sotanmochi.vmctransportbridge": {
+      "version": "file:../../VMCTransportBridge",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "jp.sotanmochi.vmctransportbridge.serialization": {
+      "version": "file:../../VMCTransportBridge.Serialization",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "jp.sotanmochi.vmctransportbridge.transports.grpc.client": {
+      "version": "file:../../VMCTransportBridge.Transports/Grpc/Client",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "jp.sotanmochi.vmctransportbridge.transports.grpc.shared": {
+      "version": "file:../../VMCTransportBridge.Transports/Grpc/Shared",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
     },
     "jp.sotanmochi.vmctransportbridge.unity": {
       "version": "file:VMCTransportBridge.Unity",
