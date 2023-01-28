@@ -14,6 +14,17 @@
       Licensed under the Apache License 2.0.  
       Copyright (c) The gRPC Authors
 
+- [Grpc.Net.Client 2.47.0](https://www.nuget.org/packages/Grpc.Net.Client/2.47.0)  
+  Licensed under the Apache License 2.0.  
+  Copyright 2019 The gRPC Authors
+
+- [Grpc.Net.Common 2.47.0](https://www.nuget.org/packages/Grpc.Net.Common/2.47.0)  
+  Licensed under the Apache License 2.0.  
+  Copyright 2019 The gRPC Authors
+
+- [Microsoft.Extensions.Logging.Abstractions 3.1.26](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/3.1.26)  
+  Licensed under the Apache License 2.0.  
+
 - [System.Buffers 4.4.0](https://www.nuget.org/packages/System.Buffers/4.4.0)  
     Licensed under the MIT License.  
     Copyright (c) .NET Foundation and Contributors
